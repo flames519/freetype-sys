@@ -29,9 +29,25 @@ fn main() {
         .warnings(false)
         .include(".")
         .include("freetype2/include")
+        .include("brotli/c/include")
         .define("FT2_BUILD_LIBRARY", None)
         .define("FT_CONFIG_OPTION_USE_BROTLI", Some("1"));
 
+    add_sources(
+        &mut build,
+        "brotli/c",
+        &[
+            "common/constants.c",
+            "common/context.c",
+            "common/dictionary.c",
+            "common/platform.c",
+            "common/transform.c",
+            "dec/bit_reader.c",
+            "dec/decode.c",
+            "dec/huffman.c",
+            "dec/state.c",
+        ],
+    );
     add_sources(
         &mut build,
         "freetype2/src",
