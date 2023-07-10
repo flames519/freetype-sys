@@ -29,7 +29,8 @@ fn main() {
         .warnings(false)
         .include(".")
         .include("freetype2/include")
-        .define("FT2_BUILD_LIBRARY", None);
+        .define("FT2_BUILD_LIBRARY", None)
+        .define("FT_CONFIG_OPTION_USE_BROTLI", Some("1"));
 
     add_sources(
         &mut build,
